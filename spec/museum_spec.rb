@@ -83,7 +83,7 @@ RSpec.describe Museum do
   end
 
 
-  xit 'can list patrons by interest' do
+  it 'can list patrons by interest' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -102,11 +102,11 @@ RSpec.describe Museum do
     dmns.admit(patron_2)
     dmns.admit(patron_3)
     expected = {
-        dead_sea_scrolls => [patron_1, patron_2],
+        dead_sea_scrolls => [patron_1, patron_2, patron_3],
         gems_and_minerals => [patron_1],
         imax => []
     }
-    expect(dmns.patrons_by_exhibit_interest).to ex(expected)
+    expect(dmns.patrons_by_exhibit_interest).to eq(expected)
   end
 
 end
