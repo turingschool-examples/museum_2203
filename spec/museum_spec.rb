@@ -13,4 +13,9 @@ describe Museum do
     dmns = Museum.new("Denver Museum of Nature and Science")
     expect(dmns.name).to eq("Denver Museum of Nature and Science")
   end
+
+  it "has no exhibits by default" do
+    dmns = Museum.new("Denver Museum of Nature and Science")
+    expect(dmns.exhibits).to eq([])
+  end
 end
