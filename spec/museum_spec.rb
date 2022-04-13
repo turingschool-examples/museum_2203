@@ -51,7 +51,7 @@ RSpec.describe Museum do
     expect(dmns.recommended_exhibits(patron_2)).to eq([imax])
   end
 
-  it 'can admit patrons' do
+  xit 'can admit patrons' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -80,7 +80,7 @@ RSpec.describe Museum do
     expect(dmns.patrons).to eq([patron_1, patron_2, patron_3])
   end
 
-  it 'can give me patrons by exhibit interest' do
+  xit 'can give me patrons by exhibit interest' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -113,7 +113,7 @@ RSpec.describe Museum do
     expect(dmns.patrons_by_exhibit_interest).to eq(expected)
   end
 
-  it 'can give me ticket lottery contestants' do
+  xit 'can give me ticket lottery contestants' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -144,7 +144,7 @@ RSpec.describe Museum do
 
   end
 
-  it 'gives me a random winer when i draw the lottery' do
+  xit 'gives me a random winer when i draw the lottery' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -194,6 +194,7 @@ RSpec.describe Museum do
     patron_1.add_interest("Dead Sea Scrolls")
     patron_1.add_interest("IMAX")
     dmns.admit(patron_1)
+
     expect(patron_1.spending_money).to eq(0)
 
   end
