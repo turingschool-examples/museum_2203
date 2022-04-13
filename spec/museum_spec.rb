@@ -1,6 +1,6 @@
 require 'rspec'
 require 'pry'
-require './lib/exhibit'
+require './lib/museum'
 describe Museum do
   context 'iteration 2' do
     before(:each) do
