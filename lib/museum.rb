@@ -26,4 +26,22 @@ class Museum
     end
     rec
   end
+
+  def patrons_by_exhibit_interest
+    pbei = {
+      gems_and_minerals: [],
+      dead_sea_scrolls: [],
+      imax: []
+    }
+    @patrons.each do |e|
+      e.interests.each do |interest|
+        pbei[:gems_and_minerals] << e if interest.include?("Gems and Minerals")
+        pbei[:dead_sea_scrolls] << e if interest.include?("Dead Sea Scrolls")
+        pbei[:imax] << e if interest.include?("IMAX")
+        # binding.pry
+      end
+      # binding.pry
+    end
+    pbei
+  end
 end
