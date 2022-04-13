@@ -7,9 +7,9 @@ RSpec.describe Museum do
     it 'exisits and has attributes' do
       dmns = Museum.new("Denver Museum of Nature and Science")
 
-      expect(dmns).to be_a Musesum
+      expect(dmns).to be_a Museum
       expect(dmns.name).to eq "Denver Museum of Nature and Science"
-      expect(smns.exhibits).to eq []
+      expect(dmns.exhibits).to eq []
     end
   end
 end
