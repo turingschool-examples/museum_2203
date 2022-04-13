@@ -18,4 +18,8 @@ class Museum
       exhibit if patron.interests.include?(exhibit.name)
     end.compact
   end
+
+  def admit(patron)
+    @patrons << patron
+  end
 end
