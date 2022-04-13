@@ -106,7 +106,7 @@ describe Museum do
 
     expect(@tj.spending_money).to eq(7)
     expect(@patron_1.spending_money).to eq(0)
-    expect(@patron_2.spending_money).to eq(5)
+    expect(@patron_2.spending_money).to eq(10)
     expect(@morgan.spending_money).to eq(5)
   end
 
