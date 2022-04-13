@@ -1,6 +1,5 @@
 class Patron
 
-  class Exhibit
   attr_reader :name, :spending_money,
               :interests
 
@@ -10,8 +9,8 @@ class Patron
     @interests = []
   end
 
-
-
+  def add_interest(interest)
+    @interests << interest
   end
 
 end
