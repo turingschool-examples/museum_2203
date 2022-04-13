@@ -31,11 +31,10 @@ class Museum
     end
   end
 
-  # def patrons_by_exhibit_interest
-  #
-  # end
-
-
-
-
+  def patrons_by_exhibit_interest
+    @exhibits.reduce({}) do |hash, exhibit|
+      hash[exhibit] = patrons_by_interests(exhibit)
+      hash
+    end
+  end
 end
