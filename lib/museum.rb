@@ -47,4 +47,12 @@ attr_reader :name, :exhibits, :patrons
         end
         lottery_participants
     end
+    
+    def draw_lottery_winner(exhibit)
+        # require 'pry'; binding.pry
+        winner = ticket_lottery_contestants(exhibit).map do |ticket_lottery_contestant|
+            ticket_lottery_contestant.name
+        end
+        winner.sample
+    end
 end
