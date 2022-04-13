@@ -44,4 +44,13 @@ class Museum
     end
     pbei
   end
+
+  def ticket_lottery_contestants(exhibit)
+    contestants = []
+    @patrons.each do |e|
+      # binding.pry
+      contestants << e if e.spending_money < exhibit.cost
+    end
+    contestants
+  end
 end
