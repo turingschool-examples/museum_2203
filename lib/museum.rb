@@ -24,4 +24,17 @@ class Museum
     @patrons << patron
   end
 
+  def patrons_by_exhibit_interest
+    patron_hash = {}
+    @exhibits.each do |exhibit|
+      patron_hash[exhibit] = []
+      @patrons.each do |patron|
+        if patron.interests.include?(exhibit.name)
+          patron_hash[exhibit] << patron
+        end
+      end
+    end
+        patron_hash
+  end
+
 end
