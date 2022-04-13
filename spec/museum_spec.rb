@@ -47,4 +47,12 @@ describe Museum do
     expect(dmns.recommend_exhibits(patron_2)).to eq([imax])
 
   end
+
+  it "has empty patrons array" do
+    dmns = Museum.new("Denver Museum of Nature and Science")
+
+    expect(dmns.patrons).to be([])
+
+
+  end
 end
