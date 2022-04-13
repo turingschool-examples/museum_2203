@@ -33,8 +33,6 @@ class Museum
   end
 
   def ticket_lottery_contestants(exhibit)
-    # interest = (patron.interests.include?(exhibit.name))
-    # not_enough_money = (patron.spending_money < exhibit.cost)
     @patrons.select do |patron|
       patron if (patron.interests.include?(exhibit.name)) && (patron.spending_money < exhibit.cost)
     end
