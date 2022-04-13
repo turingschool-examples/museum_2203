@@ -47,8 +47,5 @@ class Museum
   def draw_lottery_winner(exhibit)
     winner = ticket_lottery_contestants(exhibit).sample
     winner.name
-    # require 'pry'; binding.pry
   end
-
-
 end
