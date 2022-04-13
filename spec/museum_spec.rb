@@ -32,16 +32,15 @@ RSpec.describe Museum do
       imax = Exhibit.new({name: "IMAX",cost: 15})
       dmns.add_exhibit(gems_and_minerals)
       dmns.add_exhibit(dead_sea_scrolls)
-      # dmns.add_exhibit(imax)
+      dmns.add_exhibit(imax)
       patron_1 = Patron.new("Bob", 20)
       patron_1.add_interest("Dead Sea Scrolls")
       patron_1.add_interest("Gems and Minerals")
-      # patron_2 = Patron.new("Sally", 20)
-      # patron_2.add_interest("IMAX")
+      patron_2 = Patron.new("Sally", 20)
+      patron_2.add_interest("IMAX")
 
-      expect(dmns.recommend_exhibits(patron_1)).to eq (["Gems and Minerals", "Dead Sea Scrolls"])
-
-      # expect(dmns.recommend_exhibits(patron_2)).to eq (["IMAX"])
+      expect(dmns.recommend_exhibits(patron_1)).to eq (["Dead Sea Scrolls", "Gems and Minerals"])
+      expect(dmns.recommend_exhibits(patron_2)).to eq (["IMAX"])
     end
   end
 

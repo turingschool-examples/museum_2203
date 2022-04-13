@@ -1,7 +1,7 @@
 require 'pry'
 class Museum
 
-  attr_reader :name, :exhibits, :patrons 
+  attr_reader :name, :exhibits, :patrons
   def initialize(name)
     @name = name
     @exhibits = []
@@ -13,8 +13,13 @@ class Museum
   end
 
   def recommend_exhibits(patron)
-    @exhibits.map do |exhibit|
-      exhibit.name
-    end
+    # binding.pry
+    # @patrons.each do |patron|
+      patron.interests
+    # end
+  end
+
+  def admit(patron)
+    @patrons << patron
   end
 end
