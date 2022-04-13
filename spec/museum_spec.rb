@@ -21,8 +21,18 @@ describe Museum do
 
   it "can have exhibits added" do
     dmns = Museum.new("Denver Museum of Nature and Science")
-    gems_and_minerals = Exhibit.new("Gems and Minerals")
+    gems_and_minerals = Exhibit.new({name: "Gems and Minerals"}, {cost: 0})
     dmns.add_exhibit(gems_and_minerals)
     expect(dmns.exhibits).to eq([gems_and_minerals])
   end
+
+  it "can recommend exhibits"
+  dmns = Museum.new("Denver Museum of Nature and Science")
+  gems_and_minerals = Exhibit.new({name: "Gems and Minerals"}, {cost: 0})
+  dmns.add_exhibit(gems_and_minerals)
+  patron1 = Patron.new("Bob", 20)
+  # dmns.add_patron(patron1)
+  patron1.add_interest("Dead Sea Scrolls")
+  patron1.add_interest("Gems and Minerals")
+  expect(dmns.recommended_exhibits(patron1)).to eq(gems_and_minerals)
 end
