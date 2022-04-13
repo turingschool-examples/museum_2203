@@ -137,4 +137,44 @@ RSpec.describe Museum do
     expect(dmns.draw_lottery_winner(dead_sea_scrolls)).to eq("Johnny") | eq("Bob")
     expect(dmns.draw_lottery_winner(gems_and_minerals)).to eq nil
   end
+
+  describe "iteration 4" do
+    let(:gems_and_minerals) { Exhibit.new({name: "Gems and Minerals", cost: 0}) }
+    let(:imax) { Exhibit.new({name: "IMAX", cost: 15}) }
+    let(:dead_sea_scrolls) { Exhibit.new({name: "Dead Sea Scrolls", cost: 10}) }
+    let(:tj) { Patron.new("TJ", 7) }
+    before :each do
+      dmns.add_exhibit(gems_and_minerals)
+      dmns.add_exhibit(imax)
+      dmns.add_exhibit(dead_sea_scrolls)
+      tj.add_interest("IMAX")
+      tj.add_interest("Dead Sea Scrolls")
+      dmns.admit(tj)
+    end
+
+    it "spends patron money during admission based on interests and cost" do
+      expect(tj.spending_money).to eq 7
+
+      patron_1 = Patron.new("Bob", 10)
+      patron_1.add_interest("Dead Sea Scrolls")
+      patron_1.add_interest("IMAX")
+      dmns.admit(patron_1)
+
+      expect(patron_1.spending_money).to eq 0
+
+      patron_2 = Patron.new("Sally", 20)
+      patron_2.add_interest("IMAX")
+      patron_2.add_interest("Dead Sea Scrolls")
+      dmns.admit(patron_2)
+
+      expect(patron_2.spending_money).to eq 5
+
+      morgan = Patron.new("Morgan", 15)
+      morgan.add_interest("Gems and Minerals")
+      morgan.add_interest("Dead Sea Scrolls")
+      dmns.admit(morgan)
+
+      expect(morgan.spending_money).to eq 5
+    end
+  end
 end
