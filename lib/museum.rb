@@ -28,6 +28,6 @@ class Museum
   end
 
   def admit(patron)
-
+    @patrons << patron
   end
 end
