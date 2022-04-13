@@ -18,4 +18,8 @@ RSpec.describe Museum do
   it "has readable attributes" do
     expect(@dmns.name).to eq("Denver Museum of Nature and Science")
   end
+
+  it "has no exhibits by default" do
+    expect(@dmns.exhibits).to eq([])
+  end
 end
