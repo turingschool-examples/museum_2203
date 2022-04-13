@@ -18,4 +18,11 @@ describe Museum do
     dmns = Museum.new("Denver Museum of Nature and Science")
     expect(dmns.exhibits).to eq([])
   end
+
+  it "can have exhibits added" do
+    dmns = Museum.new("Denver Museum of Nature and Science")
+    gems_and_minerals = Exhibit.new("Gems and Minerals")
+    dmns.add_exhibit(gems_and_minerals)
+    expect(dmns.exhibits).to eq([gems_and_minerals])
+  end
 end
