@@ -1,10 +1,11 @@
 class Museum
 
-  attr_reader :name, :exhibits
+  attr_reader :name, :exhibits, :patrons
 
   def initialize(name)
     @name = name
     @exhibits = []
+    @patrons = []
   end
 
   def add_exhibit(exhibit)
@@ -17,7 +18,7 @@ class Museum
       patron.interests.each do |interest|
         # require 'pry'; binding.pry
         if interest == exhibit.name
-          recommended << exhibit 
+          recommended << exhibit
         end
       end
     end
