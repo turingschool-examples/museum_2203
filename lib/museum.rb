@@ -1,13 +1,14 @@
 
 class Museum
 
-  attr_reader :name, :exhibits, :patrons
+  attr_reader :name, :exhibits, :patrons, :revenue
 
   def initialize(name)
     @name = name
     @exhibits = []
     @patrons = []
     @patrons_of_exhibits = {}
+    @revenue = 0
   end
 
   def add_exhibit(exhibit)
@@ -38,6 +39,7 @@ class Museum
     possible_exhibits.each do |exhibit|
       if patron.spending_money >= exhibit.cost
         patron.spending_money -= exhibit.cost
+        @revenue += exhibit.cost
       end
     end
   end

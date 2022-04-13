@@ -110,4 +110,17 @@ describe Museum do
     expect(@morgan.spending_money).to eq(5)
   end
 
+  it 'can add to museum revenue when patrons admitted' do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+    @dmns.admit(@tj)
+    @dmns.admit(@morgan)
+
+    expect(@dmns.revenue).to eq(20)
+  end
+
 end
