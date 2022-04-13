@@ -17,7 +17,7 @@ class Museum
     interests.each do |interest|
        @exhibits.each do |exhibit|
         if exhibit.name == interest
-          recommended << exhibit
+          recommended << exhibit #why is this returning a string? RIP 45 minutes
         end
       end
     end
