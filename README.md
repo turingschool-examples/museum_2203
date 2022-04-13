@@ -142,34 +142,34 @@ x pry(main)> dmns.add_exhibit(dead_sea_scrolls)
 
 x pry(main)> dmns.add_exhibit(imax)
 
-pry(main)> dmns.patrons
+x pry(main)> dmns.patrons
 # => []
 
-pry(main)> patron_1 = Patron.new("Bob", 0)
+x pry(main)> patron_1 = Patron.new("Bob", 0)
 # => #<Patron:0x00007fb2011455b8...>
 
-pry(main)> patron_1.add_interest("Gems and Minerals")
+x pry(main)> patron_1.add_interest("Gems and Minerals")
 
-pry(main)>
+x pry(main)>
 patron_1.add_interest("Dead Sea Scrolls")
 
-pry(main)> patron_2 = Patron.new("Sally", 20)
+x pry(main)> patron_2 = Patron.new("Sally", 20)
 # => #<Patron:0x00007fb20227f8b0...>
 
-pry(main)> patron_2.add_interest("Dead Sea Scrolls")
+x pry(main)> patron_2.add_interest("Dead Sea Scrolls")
 
-pry(main)> patron_3 = Patron.new("Johnny", 5)
+x pry(main)> patron_3 = Patron.new("Johnny", 5)
 # => #<Patron:0x6666fb20114megan...>
 
-pry(main)> patron_3.add_interest("Dead Sea Scrolls")
+x pry(main)> patron_3.add_interest("Dead Sea Scrolls")
 
-pry(main)> dmns.admit(patron_1)
+x pry(main)> dmns.admit(patron_1)
 
-pry(main)> dmns.admit(patron_2)
+x pry(main)> dmns.admit(patron_2)
 
-pry(main)> dmns.admit(patron_3)
+x pry(main)> dmns.admit(patron_3)
 
-pry(main)> dmns.patrons
+x pry(main)> dmns.patrons
 # => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x00007fb20227f8b0...>, #<Patron:0x6666fb20114megan...>]
 
 #Patrons are added even if they don't have enough money for all/any exhibits.
