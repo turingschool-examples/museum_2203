@@ -174,7 +174,7 @@ x pry(main)> dmns.patrons
 
 #Patrons are added even if they don't have enough money for all/any exhibits.
 
-pry(main)> dmns.patrons_by_exhibit_interest
+x pry(main)> dmns.patrons_by_exhibit_interest
 # =>
 # {
 #   #<Exhibit:0x00007fb202238618...> => [#<Patron:0x00007fb2011455b8...>],
