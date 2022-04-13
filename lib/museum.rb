@@ -12,4 +12,12 @@ class Museum
   def add_exhibit(exhibit)
     @exhibits << exhibit
   end
+
+  def recommend_exhibits(patron)
+    rec = []
+    @exhibits.each do |e|
+      rec << e if patron.interests.include?(e.name)
+    end
+    rec
+  end
 end

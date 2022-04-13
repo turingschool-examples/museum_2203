@@ -39,12 +39,12 @@ describe 'Museum' do
     dmns.add_exhibit(dead_sea_scrolls)
     dmns.add_exhibit(imax)
     patron_1 = Patron.new("Bob", 20)
-    patron_1.add_interest("Dead Sea Scrolls")
-    patron_1.add_interest("Gems and Minerals")
+    patron_1.add_interests("Dead Sea Scrolls")
+    patron_1.add_interests("Gems and Minerals")
     patron_2 = Patron.new("Sally", 20)
-    patron_2.add_interest("IMAX")
+    patron_2.add_interests("IMAX")
 
-    expect(dmns.recommend_exhibits(patron_1)).to eq [dead_sea_scrolls, gems_and_minerals]
+    expect(dmns.recommend_exhibits(patron_1)).to eq [gems_and_minerals, dead_sea_scrolls]
     expect(dmns.recommend_exhibits(patron_2)).to eq [imax]
   end
 end
