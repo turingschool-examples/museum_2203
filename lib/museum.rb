@@ -54,8 +54,12 @@ class Museum
 
   def draw_lottery_winner(exhibit)
     lottery_contestants = ticket_lottery_contestants(exhibit)
-    random_num = rand(0..(lottery_contestants.length-1))
-    return lottery_contestants[random_num].name
+    winner = nil
+    if lottery_contestants.length > 0
+      random_num = rand(0..(lottery_contestants.length-1))
+      winner = lottery_contestants[random_num].name
+    end
+    return winner
   end
 
 end
