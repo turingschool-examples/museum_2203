@@ -63,6 +63,7 @@ describe Museum do
     imax = Exhibit.new({name: "IMAX",cost: 15})
     patron_1 = Patron.new("Bob", 20)
     patron_2 = Patron.new("Sally", 20)
+    patron_3 = Patron.new("Johnny", 5)
 
     dmns.add_exhibit(gems_and_minerals)
     dmns.add_exhibit(dead_sea_scrolls)
