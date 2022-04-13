@@ -25,8 +25,6 @@ RSpec.describe Museum do
     dmns.add_exhibit(gems_and_minerals)
     dmns.add_exhibit(dead_sea_scrolls)
     dmns.add_exhibit(imax)
-    require "pry"; binding.pry
-
     expect(dmns.exhibits).to eq([gems_and_minerals, dead_sea_scrolls, imax])
   end
 
@@ -34,7 +32,8 @@ RSpec.describe Museum do
      patron_1.add_interest("Dead Sea Scrolls")
      patron_1.add_interest("Gems and Minerals")
      patron_2.add_interest("IMAX")
-
+     expect(dmns.recommend_exhibits(patron_1)).to eq(patron_1.interests)
+     expect(dmns.recommend_exhibits(patron_2)).to eq(patron_2.interests)
   end
 
 end
