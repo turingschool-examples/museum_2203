@@ -28,4 +28,8 @@ class Museum
     end
     exhibit_intests
   end
+
+  def ticket_lottery_contestants(exhibit)
+    patrons_by_exhibit_interest[exhibit].select { |patron| patron.spending_money < exhibit.cost }
+  end
 end
