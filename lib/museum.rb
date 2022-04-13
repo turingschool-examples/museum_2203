@@ -23,4 +23,15 @@ attr_reader :name, :exhibits, :patrons
     def admit(patron)
         @patrons << patron
     end
+
+    def patrons_by_exhibit_interest
+        exhibit_interests = {}
+        # require 'pry'; binding.pry
+        exhibits.map do |exhibit|
+            exhibit_interests[exhibit] = patrons.find_all do |patron|
+                patron.interests.include?(exhibit.name)
+            end
+        end
+        exhibit_interests
+    end
 end
