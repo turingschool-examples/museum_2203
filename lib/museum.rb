@@ -12,6 +12,10 @@ class Museum
     @exhibits << exhibit
   end
 
+  def admit(patron)
+    @patrons << patron
+  end
+
   def recommended_exhibits(patron)
     recommended = []
     exhibits.each do |exhibit|
