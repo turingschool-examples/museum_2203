@@ -78,4 +78,15 @@ describe Museum do
     expect(@dmns.ticket_lottery_contestants(@dead_sea_scrolls)).to eq([@patron_1, @patron_3])
   end
 
+  it 'can draw lottery winner' do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+
+    expect(@dmns.draw_lottery_winner(@dead_sea_scrolls)).to eq("Johnny" || "Bob")
+  end
+
 end
