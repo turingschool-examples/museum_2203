@@ -112,7 +112,7 @@ RSpec.describe Museum do
 
     # require 'pry'; binding.pry
 
-    expect(dmns.patrons_by_shibit_interest).to eq(expected)
+    expect(dmns.patrons_by_exhibit_interest).to eq(expected)
 
 
   end
