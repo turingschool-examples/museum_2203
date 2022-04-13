@@ -87,6 +87,7 @@ describe Museum do
     @dmns.admit(@patron_3)
 
     expect(@dmns.draw_lottery_winner(@dead_sea_scrolls)).to eq("Johnny").or eq("Bob")
+    expect(@dmns.draw_lottery_winner(@gems_and_minerals)).to eq(nil)
   end
 
 end
