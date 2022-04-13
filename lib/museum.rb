@@ -23,4 +23,24 @@ class Museum
   def admit(patron)
     @patrons << patron
   end
+
+  # def patrons_by_exhibit_interest
+  #
+  # end
+
+  def ticket_lottery_contestants(exhibit)
+    @lotto_contestants = []
+    @patrons.each do |patron|
+      if (patron.interests.include?(exhibit.name)) && (patron.spending_money < exhibit.cost)
+        @lotto_contestants << patron
+      end
+    end
+    @lotto_contestants
+  end
+
+  def draw_lottery_winner(exhibit)
+    ticket_lottery_contestants(exhibit)
+    @lotto_contestants.shuffle!
+    return @lotto_contestants[0]
+  end
 end
