@@ -1,3 +1,4 @@
+require './lib/patron'
 describe Patron do
   it "exists" do
     patron_1 = Patron.new("Bob", 20)
