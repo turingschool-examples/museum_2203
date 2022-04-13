@@ -58,7 +58,11 @@ class Museum
 
   def draw_lottery_winner(exhibit)
     array = ticket_lottery_contestants(exhibit)
-    array.sample.name
+    if array[0] == nil
+      return nil
+    else
+      array.sample.name
+    end
   end
 
 end
