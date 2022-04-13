@@ -61,6 +61,9 @@ RSpec.describe Museum do
   end
 
   it "can list patrons by exhibit interest" do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
     patron_1 = Patron.new("Bob", 20)
     patron_1.add_interest("Gems and Minerals")
     patron_2 = Patron.new("Sally", 20)
@@ -70,6 +73,7 @@ RSpec.describe Museum do
     @dmns.admit(patron_1)
     @dmns.admit(patron_2)
     @dmns.admit(patron_3)
+    require "pry"; binding.pry
     expect(@dmns.patrons_by_exhibit_interest).to eq({
       @gems_and_minerals => [patron_1],
       @dead_sea_scrolls => [patron_2, patron_3],
