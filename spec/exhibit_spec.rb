@@ -14,7 +14,7 @@ describe 'exhibit' do
   it 'takes in a hash of information about the exhibit' do
     exhibit = Exhibit.new({name: "Gems and Minerals", cost: 0})
 
-    expect(exhibit.info[:name]).to eq "Gems and Minerals"
-    expect(exhibit.info[:cost]).to eq 0
+    expect(exhibit.name).to eq "Gems and Minerals"
+    expect(exhibit.cost).to eq 0
   end
 end
