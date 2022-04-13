@@ -25,8 +25,17 @@ class Museum
     @patrons << patron
   end
 
+  def patrons_by_interests(exhibit)
+    @patrons.find_all do |patron|
+      patron.interests.include?(exhibit.name)
+    end
+  end
+
   # def patrons_by_exhibit_interest
   #
   # end
+
+
+
 
 end
