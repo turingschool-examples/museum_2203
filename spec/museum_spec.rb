@@ -2,7 +2,7 @@ require './lib/museum'
 require './lib/exhibit'
 require './lib/patron'
 
-describe Mueseum do
+describe Museum do
   it 'exists' do
     dmns = Museum.new("Denver Museum of Nature and Science")
 
