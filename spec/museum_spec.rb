@@ -54,4 +54,8 @@ RSpec.describe Museum do
     expect(@dmns.patrons).to eq ([@patron_1, @patron_2, @patron_3])
   end
 
+  it 'can return a hash of patrons by exhibit interest' do
+
+  end
+
 end
