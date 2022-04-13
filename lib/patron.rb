@@ -10,4 +10,6 @@ class Patron
   def add_interest(exhibit)
     @interests << exhibit
   end
+
+  
 end
