@@ -1,3 +1,4 @@
+require 'pry'
 class Museum
 
   attr_reader :name, :exhibits
@@ -6,7 +7,13 @@ class Museum
     @exhibits = []
   end
 
-  def add_exhibit(name)
-    @exhibits << name
+  def add_exhibit(exhibit_name)
+    @exhibits << exhibit_name
+  end
+
+  def recommend_exhibits(patron)
+    @exhibits.map do |exhibit|
+      exhibit.name
+    end
   end
 end
