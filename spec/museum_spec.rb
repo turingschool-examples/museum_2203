@@ -15,6 +15,7 @@ RSpec.describe do
 
     expect(dmns.name).to eq("Denver Museum of Nature and Science")
     expect(dmns.exhibits).to eq([])
+    expect(dmns.patrons).to eq([])
   end
 
   it "can add exhibits" do
@@ -51,5 +52,11 @@ RSpec.describe do
 
     expect(dmns.recommend_exhibits(patron_1).count).to eq(2)
     expect(dmns.recommend_exhibits(patron_2).count).to eq(1)
+  end
+
+  it "can admit patrons" do
+
+
+
   end
 end
