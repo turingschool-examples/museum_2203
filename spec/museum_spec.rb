@@ -26,6 +26,18 @@ RSpec.describe Museum do
 
   end
 
+  it 'can recommend exhibits' do
+    patron_1 = Patron.new("Bob", 20)
+    patron_1.add_interest("Dead Sea Scrolls")
+    patron_1.add_interest("Gems and Minerals")
+    patron_2 = Patron.new("Sally", 20)
+    patron_2.add_interest("IMAX")
+    dmns.recommend_exhibits(patron_1)
+    dmns.recommend_exhibits(patron_2)
+
+
+  end
+
 
 
 end
