@@ -51,7 +51,7 @@ describe Museum do
   it "has empty patrons array" do
     dmns = Museum.new("Denver Museum of Nature and Science")
 
-    expect(dmns.patrons).to be([])
+    expect(dmns.patrons).to eq([])
 
 
   end
