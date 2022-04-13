@@ -14,10 +14,6 @@ class Museum
 
 
   def recommended_exhibits(patron)
-    patron.interests.each do
-      if patron.interests.any?{|exhibits|}
-      end
-    end
   end
 
 end

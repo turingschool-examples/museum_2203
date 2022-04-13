@@ -31,7 +31,7 @@ describe Museum do
   gems_and_minerals = Exhibit.new({name: "Gems and Minerals"}, {cost: 0})
   dmns.add_exhibit(gems_and_minerals)
   patron1 = Patron.new("Bob", 20)
-  # dmns.add_patron(patron1)
+  dmns.add_patron(patron1)
   patron1.add_interest("Dead Sea Scrolls")
   patron1.add_interest("Gems and Minerals")
   expect(dmns.recommended_exhibits(patron1)).to eq(gems_and_minerals)
