@@ -28,16 +28,16 @@ x pry(main)> exhibit.name
 x pry(main)> exhibit.cost
 # => 0
 
-pry(main)> patron_1 = Patron.new("Bob", 20)
+x pry(main)> patron_1 = Patron.new("Bob", 20)
 # => #<Patron:0x00007fcb13b5c7d8...>
 
-pry(main)> patron_1.name
+x pry(main)> patron_1.name
 # => "Bob"
 
-pry(main)> patron_1.spending_money
+x pry(main)> patron_1.spending_money
 # => 20
 
-pry(main)> patron_1.interests
+x pry(main)> patron_1.interests
 # => []
 
 pry(main)> patron_1.add_interest("Dead Sea Scrolls")
