@@ -14,5 +14,4 @@ RSpec.describe Exhibit do
   end
 
 
-
 end
