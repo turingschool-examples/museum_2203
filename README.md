@@ -40,11 +40,11 @@ x pry(main)> patron_1.spending_money
 x pry(main)> patron_1.interests
 # => []
 
-pry(main)> patron_1.add_interest("Dead Sea Scrolls")
+x pry(main)> patron_1.add_interest("Dead Sea Scrolls")
 
-pry(main)> patron_1.add_interest("Gems and Minerals")
+x pry(main)> patron_1.add_interest("Gems and Minerals")
 
-pry(main)> patron_1.interests
+x pry(main)> patron_1.interests
 # => ["Dead Sea Scrolls", "Gems and Minerals"]
 ```
 
