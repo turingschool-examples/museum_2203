@@ -14,6 +14,16 @@ class Museum
 
   def admit(patron)
     @patrons << patron
+    chosen_exhibit_cost = 0
+    recommended_exhibits(patron).each do |exhibit|
+      if exhibit.cost <= patron.spending_money && exhibit.cost > chosen_exhibit_cost
+        chosen_exhibit_cost = exhibit.cost
+      end
+    end
+    require 'pry'; binding.pry
+
+    patron.charge_patron(chosen_exhibit_cost)
+
   end
 
   def recommended_exhibits(patron)
