@@ -12,13 +12,17 @@ describe Museum do
     @patron_1 = Patron.new("Bob", 0)
     @patron_2 = Patron.new("Sally", 20)
     @patron_3 = Patron.new("Johnny", 5)
+    @tj = Patron.new("TJ", 7)
+    @morgan = Patron.new("Morgan", 15)
 
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_1.add_interest("Gems and Minerals")
-
     @patron_2.add_interest("Dead Sea Scrolls")
-
     @patron_3.add_interest("Dead Sea Scrolls")
+    @tj.add_interest("IMAX")
+    @tj.add_interest("Dead Sea Scrolls")
+    @morgan.add_interest("Gems and Minerals")
+    @morgan.add_interest("Dead Sea Scrolls")
   end
 
   it 'exists' do
@@ -88,6 +92,22 @@ describe Museum do
 
     expect(@dmns.draw_lottery_winner(@dead_sea_scrolls)).to eq("Johnny").or eq("Bob")
     expect(@dmns.draw_lottery_winner(@gems_and_minerals)).to eq(nil)
+  end
+
+  it 'can update patrons spending money when they are admitted' do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+    @dmns.admit(@tj)
+    @dmns.admit(@morgan)
+
+    expect(@tj.spending_money).to eq(7)
+    expect(@patron_1.spending_money).to eq(0)
+    expect(@patron_2.spending_money).to eq(5)
+    expect(@morgan.spending_money).to eq(5)
   end
 
 end
