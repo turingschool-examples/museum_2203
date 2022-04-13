@@ -28,7 +28,17 @@ describe Museum do
     @dmns.add_exhibit(@gems_and_minerals)
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)
-binding.pry
-    expext(@dmns.exhibits).to eq([gems_and_minerals, dead_sea_scrolls, imax])
+# binding.pry
+    expect(@dmns.exhibits).to eq([@gems_and_minerals, @dead_sea_scrolls, @imax])
+  end
+
+  it 'can recomend exhibits based on interests' do
+    @patron_1 = Patron.new("Bob", 20)
+    @patron_1.add_interest("Dead Sea Scrolls")
+    @patron_1.add_interest("Gems and Minerals")
+    @patron_2 = Patron.new("Sally", 20)
+    @patron_2.add_interest("IMAX")
+
+    expect(@dmns.recommend_exhibits).to eq()
   end
 end
