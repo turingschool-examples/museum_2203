@@ -17,4 +17,11 @@ describe Patron do
     patron_1.add_interest('Gems and Minerals')
     expect(patron_1.interests).to eq(['Dead Sea Scrolls', 'Gems and Minerals'])
   end
+
+  it 'can charge a patron' do
+    patron_1 = Patron.new('Bob', 20)
+    expect(patron_1.spending_money).to eq(20)
+    patron_1.charge(10)
+    expect(patron_1.spending_money).to eq(10)
+  end
 end
