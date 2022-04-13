@@ -11,4 +11,10 @@ describe 'Museum' do
 
     expect(dmns).to be_an_instance_of Museum
   end
+
+  it 'can have exhibits' do
+    dmns = Museum.new("Denver Museum of Nature and Science")
+
+    expect(dmns.exhibts).to eq []
+  end
 end
