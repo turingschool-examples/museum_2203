@@ -19,4 +19,9 @@ class Museum
     @patrons << patrons
   end
 
+  def patrons_by_exhibit_interest
+    # require "pry"; binding.pry
+    visitor = {exhibits => patrons}
+  end
+
 end

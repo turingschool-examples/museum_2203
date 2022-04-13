@@ -55,4 +55,27 @@ RSpec.describe Museum do
     expect(dmns.patrons).to eq([patron_1, patron_2, patron_3])
   end
 
+  it "can list patrons by exhibit interest" do
+    dmns.add_exhibit(gems_and_minerals)
+    dmns.add_exhibit(dead_sea_scrolls)
+    dmns.add_exhibit(imax)
+
+    patron_1.add_interest("Dead Sea Scrolls")
+    patron_1.add_interest("Gems and Minerals")
+    patron_2.add_interest("Dead Sea Scrolls")
+    patron_3.add_interest("Dead Sea Scrolls")
+
+
+
+    dmns.admit(patron_1)
+    dmns.admit(patron_2)
+    dmns.admit(patron_3)
+
+    # expected = {[<Exhibit:0x00000001028c2b40 @name="Gems and Minerals", @cost=0>, <Exhibit:0x00000001028c2730 @nam...>, <Patron:0x00000001028c20f0 @name="Johnny", @spending_money=5, @interests=["Dead Sea Scrolls"]>]}
+
+
+    expect(dmns.patrons_by_exhibit_interest).to eq(expected)
+  end
+
+
 end
