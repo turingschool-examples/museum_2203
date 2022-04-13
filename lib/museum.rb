@@ -29,4 +29,21 @@ class Museum
     return recommended
   end
 
+  def patrons_by_exhibit_interest
+    hash = {}
+    @exhibits.each do |exhibit|
+      hash[exhibit] = []
+    end
+    @exhibits.each do |exhibit|
+      @patrons.each do |patron|
+        if patron.interests.include?(exhibit.name)
+          hash[exhibit] << patron
+        end
+      end
+    end
+    return hash
+
+
+  end
+
 end
