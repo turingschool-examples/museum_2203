@@ -49,7 +49,7 @@ RSpec.describe do
     patron_2 = Patron.new("Sally", 20)
     patron_2.add_interest("IMAX")
 
-    expect(dnms.recommend_exhibit(patron_1)).to eq([gems_and_minerals, dead_sea_scrolls])
-    expect(dnms.recommend_exhibit(patron_2)).to eq([imax])
+    expect(dmns.recommend_exhibit(patron_1)).to eq([gems_and_minerals, dead_sea_scrolls])
+    expect(dmns.recommend_exhibit(patron_2)).to eq([imax])
   end
 end
