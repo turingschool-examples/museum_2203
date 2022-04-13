@@ -37,4 +37,11 @@ class Museum
         patron_hash
   end
 
+  def ticket_lottery_contestants(exhibit)
+    patron_array = []
+    patrons_by_exhibit_interest[exhibit].each do |patron|
+      patron_array << patron if exhibit.cost > patron.spending_money
+    end
+  end
+
 end
