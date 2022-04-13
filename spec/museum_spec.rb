@@ -71,5 +71,23 @@ describe Museum do
       expect(@dmns.patrons_by_exhibit_interest[@dead_sea_scrolls]).to eq([@patron_1, @patron_2, @patron_3])
       expect(@dmns.patrons_by_exhibit_interest[@imax]).to eq([])
     end
+    it 'can pull a list of lottery contestants from the patrons who cannot afford their exhibits' do
+      @dmns.admit(@patron_1)
+      @dmns.admit(@patron_2)
+      @dmns.admit(@patron_3)
+      expect(@dmns.ticket_lottery_contestants(@dead_sea_scrolls)).to eq([@patron_1, @patron_3])
+    end
+    it 'can draw a random winner from contestants' do
+      @dmns.admit(@patron_1)
+      @dmns.admit(@patron_2)
+      @dmns.admit(@patron_3)
+      expect(@dmns.draw_lottery_winner(@dead_sea_scrolls)).to eq(@patron_1).or (@patron_3)
+    end
+    it 'will return nil if there are no eligible winners' do
+      @dmns.admit(@patron_1)
+      @dmns.admit(@patron_2)
+      @dmns.admit(@patron_3)
+      expect(@dmns.draw_lottery_winner(@gems_and_minerals)).to eq(nil)
+    end
   end
 end
