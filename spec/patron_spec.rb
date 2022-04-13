@@ -23,4 +23,12 @@ describe 'patron' do
 
     expect(patron_1.interests).to eq []
   end
+
+  it 'can have interests added to it' do
+    patron_1 = Patron.new("Bob", 20)
+    patron_1.add_interests("Dead Sea Scrolls")
+    patron_1.add_interests("Gems and Minerals")
+
+    expect(patron_1.interests).to eq ["Dead Sea Scrolls", "Gems and Minerals"]
+  end
 end
