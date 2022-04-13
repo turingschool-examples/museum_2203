@@ -22,4 +22,9 @@ class Museum
     end
     return recmd_exhib
   end
+
+  def admit(patron)
+    @patrons << patron
+  end
+  
 end
