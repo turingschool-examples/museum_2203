@@ -136,6 +136,8 @@ describe 'Museum' do
     dmns.admit(patron_3)
     dmns.ticket_lottery_contestants(dead_sea_scrolls)
 
-    expect(dmns.draw_lottery_winner(dead_sea_scrolls)).to eq patron_1 || patron_3
+    # I don't know how to make the expect take an or statement
+    expect(dmns.draw_lottery_winner(dead_sea_scrolls)).to eq(patron_1)
+    expect(dmns.draw_lottery_winner(dead_sea_scrolls)).to eq(patron_3)
   end
 end

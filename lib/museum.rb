@@ -46,11 +46,15 @@ class Museum
   end
 
   def ticket_lottery_contestants(exhibit)
-    contestants = []
+   @contestants = []
     @patrons.each do |e|
       # binding.pry
-      contestants << e if e.spending_money < exhibit.cost
+      @contestants << e if e.spending_money < exhibit.cost
     end
-    contestants
+    @contestants
+  end
+
+  def draw_lottery_winner(exhibit)
+    @contestants.sample
   end
 end
