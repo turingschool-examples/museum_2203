@@ -49,11 +49,8 @@ RSpec.describe Museum do
 
   it "can admit patrons" do
     patron_1 = Patron.new("Bob", 20)
-    patron_1.add_interest("Gems and Minerals")
     patron_2 = Patron.new("Sally", 20)
-    patron_2.add_interest("Dead Sea Scrolls")
     patron_3 = Patron.new("Johnny", 5)
-    patron_3.add_interest("Dead Sea Scrolls")
     @dmns.admit(patron_1)
     @dmns.admit(patron_2)
     @dmns.admit(patron_3)
@@ -64,8 +61,9 @@ RSpec.describe Museum do
     @dmns.add_exhibit(@gems_and_minerals)
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)
-    patron_1 = Patron.new("Bob", 20)
+    patron_1 = Patron.new("Bob", 0)
     patron_1.add_interest("Gems and Minerals")
+    patron_1.add_interest("Dead Sea Scrolls")
     patron_2 = Patron.new("Sally", 20)
     patron_2.add_interest("Dead Sea Scrolls")
     patron_3 = Patron.new("Johnny", 5)
@@ -75,8 +73,25 @@ RSpec.describe Museum do
     @dmns.admit(patron_3)
     expect(@dmns.patrons_by_exhibit_interest).to eq({
       @gems_and_minerals => [patron_1],
-      @dead_sea_scrolls => [patron_2, patron_3],
+      @dead_sea_scrolls => [patron_1, patron_2, patron_3],
       @imax => []
       })
+  end
+
+  xit "can add patrons to lottery" do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+    patron_1 = Patron.new("Bob", 0)
+    patron_1.add_interest("Gems and Minerals")
+    patron_1.add_interest("Dead Sea Scrolls")
+    patron_2 = Patron.new("Sally", 20)
+    patron_2.add_interest("Dead Sea Scrolls")
+    patron_3 = Patron.new("Johnny", 5)
+    patron_3.add_interest("Dead Sea Scrolls")
+    @dmns.admit(patron_1)
+    @dmns.admit(patron_2)
+    @dmns.admit(patron_3)
+    expect(@dmns.ticket_lottery_contestants(@dead_sea_scrolls)).to eq([patron_1, patron_3])
   end
 end
