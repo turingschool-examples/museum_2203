@@ -1,6 +1,6 @@
 class Museum
 
-attr_reader :name, :exhibits
+  attr_reader :name, :exhibits
 
 def initialize(name)
   @name = name
@@ -9,4 +9,6 @@ end
 
 def add_exhibit(exhibit)
   @exhibits << exhibit
+end
+
 end
