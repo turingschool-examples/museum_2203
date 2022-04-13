@@ -45,4 +45,12 @@ class Museum
     end
     eligible_contestants
   end
+
+  def draw_lottery_winner(exhibit)
+    if ticket_lottery_contestants(exhibit) == []
+      nil
+    else
+      ticket_lottery_contestants(exhibit).sample.name
+    end
+  end
 end

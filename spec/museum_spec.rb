@@ -134,7 +134,7 @@ RSpec.describe Museum do
     dmns.admit(patron_2)
     dmns.admit(patron_3)
 
-    expect(dmns.draw_lottery_winner(dead_sea_scrolls)).to eq("Johnny" || "Bob")
+    expect(dmns.draw_lottery_winner(dead_sea_scrolls)).to eq("Johnny") | eq("Bob")
     expect(dmns.draw_lottery_winner(gems_and_minerals)).to eq nil
   end
 end
