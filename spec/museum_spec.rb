@@ -47,7 +47,7 @@ RSpec.describe Museum do
     patron_2 = Patron.new("Sally", 20)
     patron_2.add_interest("IMAX")
 
-    expect(dmns.recommended_exhibits(patron_1)).to eq([dead_sea_scrolls, gems_and_minerals])
+    expect(dmns.recommended_exhibits(patron_1)).to eq([gems_and_minerals, dead_sea_scrolls])
     expect(dmns.recommended_exhibits(patron_2)).to eq([imax])
   end
 
