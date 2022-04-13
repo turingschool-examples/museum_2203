@@ -7,5 +7,6 @@ def initialize(name)
   @exhibits = []
 end
 
-
+def add_exhibit(exhibit)
+  @exhibits << exhibit
 end
