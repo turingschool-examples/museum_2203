@@ -9,6 +9,14 @@ class Museum
 
   def add_exhibit(exhibit)
     @exhibits << exhibit
-  end 
+  end
+
+  def recommended_exhibits(patron)
+    @exhibits.map do |exhibit|
+      if patron.interests.include?(exhibit.name)
+        exhibit
+      end
+    end.compact
+  end
 
 end
