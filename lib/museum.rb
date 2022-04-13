@@ -48,14 +48,17 @@ class Museum
     cost = exhibit.cost
     hash = patrons_by_exhibit_interest
     lottery_contestants = []
-
     hash[exhibit].each do |patron|
       if cost > patron.spending_money
         lottery_contestants << patron
       end
     end
-    require 'pry'; binding.pry
     return lottery_contestants
+  end
+
+  def draw_lottery_winner(exhibit)
+    array = ticket_lottery_contestants(exhibit)
+    array.sample.name
   end
 
 end
