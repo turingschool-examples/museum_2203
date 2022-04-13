@@ -8,8 +8,16 @@ class Museum
   end
 
   def add_exhibit(exhibit)
-    @exhibits << exhibit 
+    @exhibits << exhibit
   end
 
-
+  def recommend_exhibits(patron)
+    # require "pry";binding.pry
+    recommended = []
+    @exhibits.each do |exhibit|
+          patron.interests.include?(exhibit.name)
+          recommended << exhibit
+      recommended
+    end
+  end
 end
