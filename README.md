@@ -13,19 +13,19 @@
 Use TDD to create an `Exhibit` and a `Patron` class that respond to the following interaction pattern:
 
 ```ruby
-pry(main)> require './lib/exhibit'
+x pry(main)> require './lib/exhibit'
 # => true
 
-pry(main)> require './lib/patron'
+x pry(main)> require './lib/patron'
 # => true
 
-pry(main)> exhibit = Exhibit.new({name: "Gems and Minerals", cost: 0})
+x pry(main)> exhibit = Exhibit.new({name: "Gems and Minerals", cost: 0})
 # => #<Exhibit:0x00007fcb13bd22d0...>
 
-pry(main)> exhibit.name
+x pry(main)> exhibit.name
 # => "Gems and Minerals"
 
-pry(main)> exhibit.cost
+x pry(main)> exhibit.cost
 # => 0
 
 pry(main)> patron_1 = Patron.new("Bob", 20)
