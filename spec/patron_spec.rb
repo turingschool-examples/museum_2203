@@ -12,7 +12,7 @@ describe Patron do
     it 'has a readable name' do
       expect(@patron_1.name).to eq("Bob")
     end
-    it 'has an associated cost' do
+    it 'has an associated amount of spending money' do
       expect(@patron_1.spending_money).to eq(20)
     end
     it 'has no interests by default' do
