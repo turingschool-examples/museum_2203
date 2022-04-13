@@ -34,4 +34,17 @@ attr_reader :name, :exhibits, :patrons
         end
         exhibit_interests
     end
+
+    def ticket_lottery_contestants(exhibit)
+        lottery_participants = []
+         exhibits.each do |exhibit|
+            patrons.each do |patron|
+        # require 'pry'; binding.pry
+                if patron.interests.include?(exhibit.name) && patron.spending_money < exhibit.cost
+                    lottery_participants << patron
+                end 
+            end
+        end
+        lottery_participants
+    end
 end
