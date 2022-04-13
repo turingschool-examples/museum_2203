@@ -6,4 +6,6 @@ class Patron
     @spending_money = spending_money
   end
 
+
+
 end
