@@ -125,6 +125,8 @@ describe Museum do
     dmns.admit(patron_1)
     dmns.admit(patron_2)
     dmns.admit(patron_3)
-    expect(dmns.draw_lottery_winner(dead_sea_scrolls)).to eq('Johnny' || 'Bob')
+    expected = %w[Johnny Bob]
+    expect(expected).to include(dmns.draw_lottery_winner(dead_sea_scrolls))
+    expect(dmns.draw_lottery_winner(gems_and_minerals)).to eq(nil)
   end
 end
