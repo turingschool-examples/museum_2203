@@ -46,7 +46,6 @@ class Museum
   end
 
   def draw_lottery_winner(exhibit)
-    #require 'pry'; binding.pry
     ticket_lottery_contestants(exhibit).sample
   end
 
