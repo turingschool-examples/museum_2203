@@ -42,6 +42,7 @@ attr_reader :name, :exhibits, :patrons
         # require 'pry'; binding.pry
                 if patron.interests.include?(exhibit.name) && patron.spending_money < exhibit.cost
                     lottery_participants << patron
+                #need an else for nil options including exhibits that don't cost money
                 end 
             end
         end
