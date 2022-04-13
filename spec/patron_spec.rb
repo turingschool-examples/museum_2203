@@ -10,6 +10,6 @@ describe Patron do
 
 
   it 'exists' do
-    expect(@patron1).to be_a(Patron)
+    expect(@patron_1).to be_a(Patron)
   end
 end
