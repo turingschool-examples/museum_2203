@@ -1,11 +1,12 @@
 class Museum
 
-  attr_reader :name, :exhibits, :patrons
+  attr_reader :name, :exhibits, :patrons, :patrons_of_exhibts
 
   def initialize(name)
     @name = name
     @exhibits = []
     @patrons = []
+    @patrons_of_exhibts = {}
   end
 
   def add_exhibit(exhibit)
@@ -15,7 +16,9 @@ class Museum
   def admit(patron)
     @patrons << patron
     affordable_exhibit_costs = []
+    affordable_exhibits = []
     recommended_exhibits(patron).each do |exhibit|
+      affordable_exhibits << exhibit
       affordable_exhibit_costs << exhibit.cost
     end
     affordable_exhibit_costs.sort.reverse.each do |cost|
@@ -23,6 +26,12 @@ class Museum
         #do nothing
       else
         patron.charge_patron(cost)
+        affordable_exhibits.each do |exhibit|
+          @patrons_of_exhibts[exhibit] = []
+        end
+        affordable_exhibits.each do |exhibit|
+          @patrons_of_exhibts[exhibit] << patron
+        end
       end
     end
   end
