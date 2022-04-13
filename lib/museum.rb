@@ -37,7 +37,7 @@ class Museum
   end
 
   def ticket_lottery_contestants(exhibit)
-    ## I need to look at all patrons interested in that exibit and check how much money they have
+    ## I need to look at all patrons interested in that exibit and check how much money they have vs cost of exhibit
     patrons_by_exhibit_interest[exhibit].select do |patron|
       patron.spending_money < exhibit.cost
     end
@@ -52,6 +52,5 @@ class Museum
     end
   end
 
-  
 
 end
