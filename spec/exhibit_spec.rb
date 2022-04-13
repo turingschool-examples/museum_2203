@@ -20,9 +20,4 @@ RSpec.describe Exhibit do
 
 
 
-
-
-
-
-
 end
