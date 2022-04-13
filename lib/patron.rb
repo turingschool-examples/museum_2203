@@ -7,5 +7,10 @@ class Patron
     @interest = Array.new
   end
 
+  def add_interest(interest)
+    @interest << interest
+
+  end
+
 
 end
