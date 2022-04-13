@@ -51,7 +51,7 @@ RSpec.describe Museum do
     expect(dmns.recommended_exhibits(patron_2)).to eq([imax])
   end
 
-  xit 'can admit patrons' do
+  it 'can admit patrons' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -80,7 +80,7 @@ RSpec.describe Museum do
     expect(dmns.patrons).to eq([patron_1, patron_2, patron_3])
   end
 
-  xit 'can give me patrons by exhibit interest' do
+  it 'can give me patrons by exhibit interest' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -113,7 +113,7 @@ RSpec.describe Museum do
     expect(dmns.patrons_by_exhibit_interest).to eq(expected)
   end
 
-  xit 'can give me ticket lottery contestants' do
+  it 'can give me ticket lottery contestants' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -144,7 +144,7 @@ RSpec.describe Museum do
 
   end
 
-  xit 'gives me a random winer when i draw the lottery' do
+  it 'gives me a random winer when i draw the lottery' do
     dmns = Museum.new("Denver Museum of Nature and Science")
     gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
     dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
@@ -196,6 +196,20 @@ RSpec.describe Museum do
     dmns.admit(patron_1)
 
     expect(patron_1.spending_money).to eq(0)
+
+    patron_2 = Patron.new("Sally", 20)
+    patron_2.add_interest("IMAX")
+    patron_2.add_interest("Dead Sea Scrolls")
+    dmns.admit(patron_2)
+
+    expect(patron_2.spending_money).to eq(5)
+
+    morgan = Patron.new("Morgan", 15)
+    morgan.add_interest("Gems and Minerals")
+    morgan.add_interest("Dead Sea Scrolls")
+    dmns.admit(morgan)
+
+    expect(morgan.spending_money).to eq(5)
 
   end
 
