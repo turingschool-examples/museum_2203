@@ -5,6 +5,12 @@ class Exhibit
     @exhibit_hash = exhibit_hash
   end
 
+  def name
+    @exhibit_hash[:name]
+  end
 
+  def cost
+    @exhibit_hash[:cost]
+  end
 
 end
