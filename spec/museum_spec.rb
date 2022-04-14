@@ -78,7 +78,7 @@ RSpec.describe Museum do
       })
   end
 
-  xit "can add patrons to lottery" do
+  it "can add patrons to lottery" do
     @dmns.add_exhibit(@gems_and_minerals)
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)
@@ -93,5 +93,27 @@ RSpec.describe Museum do
     @dmns.admit(patron_2)
     @dmns.admit(patron_3)
     expect(@dmns.ticket_lottery_contestants(@dead_sea_scrolls)).to eq([patron_1, patron_3])
+  end
+
+  it "can draw lottery winner" do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+    patron_1 = Patron.new("Bob", 0)
+    patron_1.add_interest("Gems and Minerals")
+    patron_1.add_interest("Dead Sea Scrolls")
+    patron_2 = Patron.new("Sally", 20)
+    patron_2.add_interest("Dead Sea Scrolls")
+    patron_3 = Patron.new("Johnny", 5)
+    patron_3.add_interest("Dead Sea Scrolls")
+    @dmns.admit(patron_1)
+    @dmns.admit(patron_2)
+    @dmns.admit(patron_3)
+    expect(@dmns.draw_lottery_winner(@dead_sea_scrolls)).to eq("Bob").or eq("Johnny")
+    expect(@dmns.draw_lottery_winner(@gems_and_minerals)).to eq(nil)
+  end
+
+  it "text" do
+
   end
 end
